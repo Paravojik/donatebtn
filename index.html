@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rubik', sans-serif;
+        }
+        .wrap{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 30px;
+            /* background-image: url('https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?w=2000');
+        background-size: cover; */
+        }
+       .donateButton__top{
+           width: 200px;
+           height: 70px;
+           background: rgb(236,233,16);
+background: linear-gradient(-15deg, rgba(236,233,16,1) 9%, rgba(15,99,222,1) 91%);
+border: 0px;
+border-radius: 15px;
+font-size: 22px;
+font-weight: 700;
+font-family: 'Rubik', sans-serif;
+color: white;
+animation: pulse 3s infinite;
+cursor: pointer;
+       }
+       .donateButton__top:hover {
+	animation: none;
+}
+       @keyframes pulse {
+	0% {
+		-moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+		box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+	}
+	40% {
+		-moz-box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+		box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+	}
+
+    100% {
+		-moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+		box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+	}
+}
+.popup__donate{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+
+    position: fixed;
+    left: 20%;
+    top: 20vh;
+ 
+}
+.infa{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    transition: 1.5s;
+
+}
+.number__help{
+    padding: 0 10px;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    background-color: #e4e4e4;
+    font-weight: 600;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.btn__clipboard{
+    width: 20%;
+    height: 100%;
+    font-size: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0px;
+    background-color: transparent;
+}
+.img__clipboard{
+    width: 100%;
+    height: 100%;
+}
+.try-to-pay{
+width: 100%;
+height: 10vh;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+.box-to-pay{
+    width: 22%;
+    height: 100%;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+user-select: none;
+}
+.logo-to-pay{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    
+}
+.sp__oplatu{
+    font-size: 28px;
+    font-weight: 600;
+}
+.box-to-pay2{
+    padding: 0px;
+}
+.qr__cod{
+    width: 30%;
+    height: 30vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    margin-right: 30%;
+}
+.qr__cod__img{
+    width: 80%;
+    height: 80%;  
+}
+@media screen and (max-width:1200px){
+    
+    .infa{
+        width: 70%;
+    }
+}
+@media screen and (max-width:1000px){
+   
+    .infa{
+        width: 80%;
+    }
+    .qr__cod__img{
+    width: 100%;
+    height: 100%;  
+}
+}
+@media screen and (max-width:800px){
+   
+    .popup__donate{
+        width: 70%;
+    }
+    .infa{
+        margin-left: -100px;
+    }
+}
+@media screen and (max-width:650px){
+    .wrap{
+        background-color: aqua;
+    }
+    .popup__donate{
+        height: 75vh;
+        top: 17.5vh;
+    }
+    .number__help{
+        width: 90%;
+    }
+    .box-to-pay4{
+        font-size: 10px;
+        
+    }
+    .qr__cod{
+        width: 35%;
+        height: 25vh;
+        padding: 0;
+    }
+ 
+}
+    </style>
+</head>
+<body>
+    <div class="wrap" id="wrap">
+       <button class="donateButton__top" id="donateButton__top">Допомогти ЗСУ</button>
+    </div>
+    <div class="popup__donate">
+  <div class="infa" id="infa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius magni impedit illum libero molestias in magnam ex blanditiis, minima optio quo placeat maxime quasi officia illo. Quibusdam cupiditate, mollitia voluptatibus veniam natus, eum quas nesciunt odit ipsum deserunt, sed exercitationem?
+<div class="number__help" id="number__help">453 4784 834<button  data-clipboard-text="453 4784 834" id="btn__clipboard" class="btn__clipboard"data-clipboard-action="copy" > <img src="./img/copy.png" class="img__clipboard" alt="Copy to clipboard"></button></div>
+<div class="sp__oplatu">Способи оплати:</div>
+<div class="try-to-pay">
+    <a class="box-to-pay" href="https://www.paypal.com/ua/home"><img class="logo-to-pay" src="./img/PayPal.png" alt="PayPal"></a>
+    <a href="https://www.monobank.ua/?lang=uk" class="box-to-pay box-to-pay2"><img class="logo-to-pay" src="./img/monobank.jpg" alt="Monobank"></a>
+    <a href="https://www.binance.com/uk-UA" class="box-to-pay"><img class="logo-to-pay" src="./img/Bitcoin.png" alt="Bitcoin"></a>
+    <div class="box-to-pay box-to-pay4">Qr-код</div>
+</div>
+
+  </div>
+  <div class="qr__cod" id="qr__cod"><img class="qr__cod__img" src="./img/Qrcod.png" alt=""></div>
+    </div>
+    <script>
+            console.log(window.navigator.platform)
+            if(window.navigator.platform=='Win32' || 'MacIntel'==window.navigator.platform || 'Linux x86_64'==window.navigator.platform){
+                console.log(window.navigator.platform)
+            }else{
+                $('.box-to-pay4').fadeOut(0)
+            }
+            let qrcodi =1
+            $('.box-to-pay4').click(function(){
+                if(qrcodi==1){
+                    $('.qr__cod').fadeIn(1500)
+                    infa.style.marginRight='10%'
+                    qrcodi=0
+                    qr__cod.style.marginRight='-14%'
+                }else{
+                    qrcodi=1
+                    infa.style.marginRight='0%'
+                    qr__cod.style.marginRight='-30%'
+                    $('.qr__cod').fadeOut(1500)
+                }
+                
+            })
+        let clipboard = new ClipboardJS('.btn__clipboard');
+$('.popup__donate').fadeOut(0)
+$('.qr__cod').fadeOut(0)
+let popupi=1;
+$('.wrap').click(function(){
+    if(popupi==0){
+        wrap.style.filter = 'blur(0px)'
+        $('.popup__donate').fadeOut(300) 
+        popupi=1;
+    }
+  
+})
+$('.donateButton__top').click(function(){
+    if(popupi==1){
+        wrap.style.filter = 'blur(5px)'
+        $('.popup__donate').fadeIn(300)
+        setTimeout(function(){
+            popupi=0
+        },301)
+       
+    }
+
+})
+
+clipboard.on('success', function(e) {
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+});
+
+clipboard.on('error', function(e) {
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+});
+
+tippy('#donateButton__top', {
+  followCursor: true,
+  content: "Дізнатись більше",
+ 
+});
+tippy('#btn__clipboard', {
+    placement: 'bottom',
+    trigger: 'click',
+  content: "Скопійовано",
+ 
+});
+    </script>
+</body>
+</html>
